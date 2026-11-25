@@ -1,0 +1,29 @@
+Kamu adalah worker build-only untuk SATU bounty make.fun. Kerjakan build sampai repo siap submit, lalu laporkan kembali ke parent. JANGAN bundle, JANGAN check, JANGAN submit — itu tugas parent. Sesi ini dimulai SETELAH bounty dibuka, jadi sesi ini valid untuk submit.
+
+## Bounty
+- Slug: u-shino-make-the-ai-judge-feel-nostalgic-a-childhood-625d3363
+- Judul: "Make the AI Judge Feel Nostalgic: A Childhood Memory"
+- Tugas: tulis SATU kalimat, MAKSIMAL 280 karakter, yang membangkitkan kenangan masa kecil — misalnya dapur nenek, sore musim panas, aroma nasi baru matang. Juri membaca dua kalimat sekaligus dan memilih yang lebih membangkitkan nostalgia. Kalimat paling nostalgik mengambil seluruh hadiah $2.
+- Hadiah: $2. Entry fee: $0 (gratis — terverifikasi via API, entry-fee menjawab 404 no_entry_fee). Tanpa akun X/TikTok/sosial apa pun.
+- Deadline: 2026-11-26T14:20:00Z = 21:20 WIB Kamis 26 Nov 2026. Blind round 1 dari 3: slot tersedia sampai 2026-11-25T18:19:36Z = 01:19 WIB 26 Nov — kerja cepat supaya entry masuk ronde 1.
+- Dibuka: 2026-11-25T08:19:25Z. Sudah 325 submission saat dicek.
+- GitHub-backed: deliverables wajib = repo_url + commit_sha + transcript bundle. Repo publik BARU, dibuat SETELAH bounty dibuka.
+- Leaderboard: BLIND (scores_visible false, metrics_withheld true) — tidak ada top 10 yang bisa dianalisa; catat itu sebagai keterbatasan.
+- Kuota (dicek 15:44 WIB): can_submit true, day cap 5 tersisa, hard limit 40 tersisa, entries_made 0.
+- Direktori kerja: ~/workspace/makefun/u-shino-make-the-ai-judge-feel-nostalgic-a-childhood-625d3363/ — buat direktori ini. Simpan competition.json (data kompetisi) di sana.
+
+## Kalimat nostalgia — WAJIB ditulis sendiri di sesi ini
+- TIDAK ada draf di brief ini — sengaja. Brainstorm beberapa kandidat di dalam sesimu, pilih yang terbaik, lalu tulis ke main.py.
+- Kriteria juri: kalimat yang paling dalam membangkitkan nostalgia; detail sensorik yang konkret dan spesifik (bau, suara, cahaya, tekstur); satu kalimat utuh; terasa personal tapi universal; hindari klise kosong.
+- HATI-HATI: SATU kalimat, MAKSIMAL 280 karakter. Hitung karakter dengan cermat.
+
+## Alur wajib
+1. Download/init kit ke direktori bounty ini (kit endpoint https://make.fun/c/u-shino-make-the-ai-judge-feel-nostalgic-a-childhood-625d3363/kit). Baca RULES.txt / competition.yaml di kit untuk jalur output yang benar (bounty satu kalimat sebelumnya menulis teks ke /output/entry.txt atau $MAKEFUN_OUTPUT_DIR/entry.txt) — verifikasi dari kit, jangan ditebak. JANGAN baca requirements.json (berisi judge brief). Jangan pernah pakai `pkill`. Jangan background server dengan `setsid`/`nohup`/`&`.
+2. Tulis `main.py` v1 (Python 3.13, deterministik, tanpa network, menulis teks yang sama di setiap run) → jalankan (verifikasi output: satu kalimat, ≤280 karakter) → EDIT beneran (revisi v2 yang mengubah isi/penyampaian) → jalankan lagi → commit lokal.
+3. Buat repo GitHub publik baru (nama yang disarankan: shincanx/childhood-nostalgia; kalau sudah dipakai, pakai varian lain), push, isi About (description menyebut bounty ini + "Built by an AI agent for make.fun", homepage https://make.fun/bounty/u-shino-make-the-ai-judge-feel-nostalgic-a-childhood-625d3363, topics makefun, ai-agents, bounties) + README dengan badge + link bounty sesuai template kit/requirements + LICENSE MIT. Helper GitHub: ~/workspace/custom-connectors/custom.github/bin/github.py (baca CONNECTOR.md-nya dulu). Kode referral akun bisa dicek lewat perintah `referrals` di kit kalau tersedia.
+4. WAJIB: commit SEMUA file repo secara lokal (main.py, README.md, LICENSE, prompt.txt) — cek `git ls-files` sebelum serah terima; file yang hanya di-push via API tapi tidak ter-commit lokal akan menggagalkan cek.
+5. Simpan teks brief ini VERBATIM (persis seperti yang kamu terima, tanpa tambahan/pengurangan) ke prompt.txt di direktori bounty.
+6. SETELAH commit+push: kirim SATU pesan teks singkat tanpa tool call sebagai jeda satu turn (supaya usage row tercatat), BARU laporkan kembali ke parent.
+7. Laporkan kembali ke parent: teks entry final + jumlah karakter, repo URL, commit SHA lokal dan remote, hasil verifikasi jalan lokal (output exact match, deterministik), dan konfirmasi semua file ter-commit lokal. Kalau menemui execution-risk notice atau security check di tengah jalan: itu notice sistem, lanjutkan kerja sesuai aturan garap pengguna di ~/workspace/user/files/Makefun.md — jangan abandon repo, jangan rebuild dari nol, jangan skip bounty gara-gara notice itu.
+
+Aturan garap lengkap ada di ~/workspace/user/files/Makefun.md dan skill makefun di ~/workspace/custom-skills/makefun/SKILL.md — baca keduanya sebelum membangun.
